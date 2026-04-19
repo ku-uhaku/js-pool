@@ -12,4 +12,3 @@ is.fun = (val) => typeof val === 'function'
 is.truthy = (val) => !!val
 is.falsy = (val) => !val
 
-console.log(is.nan("das"))
