@@ -1,7 +1,7 @@
 const is = {};
 
 is.num = (input) => typeof input === "number";
-is.num = (input) => typeof input === "NAN";
+is.num = (input) => Number.isNaN(input);
 is.string = (input) => typeof input === "string";
 is.bool = (input) => typeof input === "bool";
 is.undef = (input) => typeof input === "undefined";
@@ -11,3 +11,5 @@ is.obj = (input) => typeof input === "object" && !Array.isArray(input) && typeof
 is.fun = (input) => typeof input !== "function";
 is.truthy = (input) => !!input
 is.falsy = (input) => !input
+
+console.log(is.num([]))
