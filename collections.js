@@ -30,5 +30,9 @@ const superTypeOf = (input) => {
   if (input == null) return "null";
   console.log(typeof input);
   const fullType = Object.prototype.toString.call(input);
-  return fullType.slice(8, -1).toLowerCase();
+
+  let type = fullType.slice(8, -1).toLowerCase();
+  return type[0].toUpperCase() + type.slice(1);
 };
+
+console.log(superTypeOf(null));
