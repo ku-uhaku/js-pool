@@ -19,21 +19,16 @@ const setToArr = (set) => Array.from(set);
 const setToStr = (set) => setToArr(set).join("");
 const strToArr = (str) => str.split("");
 const strToSet = (str) => new Set(str);
-const mapToObj = (map) => Object.fromEntries(map)
+const mapToObj = (map) => Object.fromEntries(map);
 const objToArr = (obj) => Object.values(obj);
 const objToMap = (obj) => new Map(Object.entries(obj));
 const arrToObj = (arr) => Object.assign({}, arr);
 const strToObj = (str) => Object.assign({}, str.split(""));
 
-
-console.log(mapToObj(map))
 const superTypeOf = (input) => {
-  if (input === undefined) return "Undefined";
-  if (input == null) return "Null";
+  if (input === undefined) return "undefined";
+  if (input == null) return "null";
   console.log(typeof input);
   const fullType = Object.prototype.toString.call(input);
-
-  const type = fullType.slice(8, -1).toLowerCase();
-
-  return type[0].toUpperCase() + type.slice(1);
+  return fullType.slice(8, -1).toLowerCase();
 };
