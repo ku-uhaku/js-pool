@@ -1,3 +1,3 @@
 const isPositive = (n) => n > 0;
 
-const abs = (n) => (isPositive(n) ? n : -n);
+const abs = (n) => (n < 0 ? -n : n);
