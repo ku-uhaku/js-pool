@@ -2,7 +2,7 @@ const is = {};
 
 is.num = (input) => typeof input === "number";
 is.nan = (input) => Number.isNaN(input);
-is.string = (input) => typeof input === "string";
+is.str = (input) => typeof input === "string";
 is.bool = (input) => typeof input === "bool";
 is.undef = (input) => typeof input === "undefined";
 is.def = (input) => typeof input !== "undefined";
