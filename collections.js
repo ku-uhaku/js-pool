@@ -19,12 +19,14 @@ const setToArr = (set) => Array.from(set);
 const setToStr = (set) => setToArr(set).join("");
 const strToArr = (str) => str.split("");
 const strToSet = (str) => new Set(str);
-const mapToObj = (map) => new Map(Object.entries(obj));
+const mapToObj = (map) => Object.fromEntries(map)
 const objToArr = (obj) => Object.values(obj);
 const objToMap = (obj) => new Map(Object.entries(obj));
 const arrToObj = (arr) => Object.assign({}, arr);
 const strToObj = (str) => Object.assign({}, str.split(""));
 
+
+console.log(mapToObj(map))
 const superTypeOf = (input) => {
   if (input === undefined) return "Undefined";
   if (input == null) return "Null";

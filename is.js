@@ -11,5 +11,3 @@ is.obj = (input) => typeof input === "object" && !Array.isArray(input) &&  input
 is.fun = (input) => typeof input === "function";
 is.truthy = (input) => !!input
 is.falsy = (input) => !input
-
-console.log(is.fun(console.log))
