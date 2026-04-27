@@ -1,6 +1,6 @@
 const is = {};
 
-is.num = (input) => typeof input === "number";
+is.num = (input) => typeof input === "number" && !Number.isNaN(input) ;
 is.num = (input) => Number.isNaN(input);
 is.string = (input) => typeof input === "string";
 is.bool = (input) => typeof input === "bool";
@@ -12,4 +12,4 @@ is.fun = (input) => typeof input !== "function";
 is.truthy = (input) => !!input
 is.falsy = (input) => !input
 
-console.log(is.num([]))
+console.log(is.num(NaN))
