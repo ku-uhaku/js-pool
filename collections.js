@@ -26,13 +26,13 @@ const arrToObj = (arr) => Object.assign({}, arr);
 const strToObj = (str) => Object.assign({}, str.split(""));
 
 const superTypeOf = (input) => {
-  if (input === undefined) return "undefined";
-  if (input == null) return "null";
-  console.log(typeof input);
-  const fullType = Object.prototype.toString.call(input);
+    if (input === undefined) return "undefined";
+    if (input == null) return "null";
+    console.log(typeof input);
+    const fullType = Object.prototype.toString.call(input);
 
-  let type = fullType.slice(8, -1).toLowerCase();
-  return type[0].toUpperCase() + type.slice(1);
+    let type = fullType.slice(8, -1).toLowerCase();
+    return type[0].toUpperCase() + type.slice(1);
 };
-
+    
 console.log(superTypeOf(null));
