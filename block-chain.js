@@ -1,6 +1,6 @@
 const initchain = { index: 0, hash: "0" };
 
-const hasCode = (str) =>
+const hashCode = (str) =>
     (
         [...str].reduce(
             (h, c) => (h = (h << 5) - h + c.charCodeAt(0)) & h,
@@ -10,13 +10,15 @@ const hasCode = (str) =>
 
 const blockChain = (data, prev = { index: 0, hash: "0" }) => {
     const index = prev.index + 1;
-    const hash = hasCode(index + prev.hash + JSON.stringify(data));
+    const hash = hashCode(
+        String(index) + String(prev.hash) + JSON.stringify(data),
+    );
 
     return {
         index,
         hash,
-        data,
         prev,
+        data,
         chain(newData) {
             return blockChain(newData, this);
         },
