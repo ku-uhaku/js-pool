@@ -11,7 +11,7 @@ const split = (str, sep) => {
     }
 
     for (; i < str.length; i++) {
-        if (str.slice(i, i + lenSep) === sep) {
+        if (i + lenSep <= str.length && str.slice(i, i + lenSep) === sep) {
             res.push(str.slice(start, i));
             start = i + lenSep;
             i = start - 1;
