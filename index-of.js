@@ -8,10 +8,11 @@ const indexOf = (input, value, index = 0) => {
 };
 
 const lastIndexOf = (input, value, index = -1) => {
+    
     if (index < 0) {
-        realIndex = input.length + index;
+        index = input.length + index;
     }
-    for (let i = realIndex; i >= 0; i--) {
+    for (let i = index ; i >= 0; i--) {
         if (input[i] === value) {
             return i;
         }
@@ -27,3 +28,4 @@ const includes = (input, value) => {
     }
     return false;
 };
+
