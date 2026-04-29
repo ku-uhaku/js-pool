@@ -1,4 +1,4 @@
-const slicer = (input, start, end = input.length) => {
+const slice = (input, start, end = input.length) => {
     let res = [];
     if (end < 0) {
         end = input.length + end;
@@ -13,3 +13,5 @@ const slicer = (input, start, end = input.length) => {
     return Array.isArray(input) ? res : res.join("");
 };
 
+console.log(slicer("abcdef", 2));
+console.log("abcdef".slice(2));
