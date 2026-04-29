@@ -7,6 +7,7 @@ const trunc = (n) => {
     while (i + 1 <= abs) i++;
     return sign * i;
 };
+
 const floor = (nb) => (nb < 0 && trunc(nb) !== nb ? trunc(nb) - 1 : trunc(nb));
 
 const ceil = (nb) => (nb > 0 && trunc(nb) !== nb ? trunc(nb) + 1 : trunc(nb));
@@ -19,3 +20,5 @@ const round = (nb) =>
         : trunc(nb) - nb > 0.5
           ? trunc(nb) - 1
           : trunc(nb);
+
+
