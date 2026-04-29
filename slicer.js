@@ -5,6 +5,9 @@ const slice = (input, start, end = input.length) => {
     } else {
         end--;
     }
+    if (start < 0) {
+        start = input.length + start;
+    }
 
     for (let i = start; i <= end; i++) {
         res.push(input[i]);
@@ -12,6 +15,4 @@ const slice = (input, start, end = input.length) => {
 
     return Array.isArray(input) ? res : res.join("");
 };
-
-
 
