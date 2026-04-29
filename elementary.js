@@ -1,66 +1,45 @@
 const multiply = (a, b) => {
-    let res = 0;
-    let sign = 0;
+    let result = 0;
+    let negative = (a < 0) !== (b < 0);
 
-    if (a < 0) {
-        a = Math.abs(a);
-        sign++;
-    }
-    if (b < 0) {
-        b = Math.abs(b);
-        sign++;
-    }
+    a = Math.abs(a);
+    b = Math.abs(b);
 
     for (let i = 0; i < b; i++) {
-        res += a;
+        result += a;
     }
-    return sign === 1 ? -res : res;
+
+    return negative ? -result : result;
 };
 
 const divide = (a, b) => {
-    let res = 0;
-    let sign = 0;
+    if (b === 0) return NaN;
 
-    if (a < 0) {
-        a = Math.abs(a);
-        sign++;
-    }
-    if (b < 0) {
-        b = Math.abs(b);
-        sign++;
-    }
+    let result = 0;
+    let negative = (a < 0) !== (b < 0);
 
-    if (b === 0) {
-        return;
-    }
+    a = Math.abs(a);
+    b = Math.abs(b);
 
-    while (a > b) {
-        res++;
+    while (a >= b) {
         a -= b;
+        result++;
     }
 
-    return sign === 1 ? -res : res;
+    return negative ? -result : result;
 };
 
 const modulo = (a, b) => {
-    let res = Math.abs(a);
-    let sign = 0;
+    if (b === 0) return NaN;
 
-    if (b == 0) {
-        return;
-    }
+    let negative = a < 0;
 
-    if (a < 0) {
-        a = Math.abs(a);
-        sign++;
-    }
-    if (b < 0) {
-        b = Math.abs(b);
-        sign++;
+    a = Math.abs(a);
+    b = Math.abs(b);
+
+    while (a >= b) {
+        a -= b;
     }
 
-    while (res > b) {
-        res -= b;
-    }
-    return res;
+    return negative ? -a : a;
 };
