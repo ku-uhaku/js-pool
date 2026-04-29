@@ -6,6 +6,6 @@ const cutFirstLast = (str) => str.slice(2, -2);
 
 const keepFirst = (str) => str.slice(0, 2);
 
-const keepLast = (str) => str.slice(-3, -1);
+const keepLast = (str) => str.slice(-2);
 
 const keepFirstLast = (str) => keepFirst(str) + keepLast(str);
