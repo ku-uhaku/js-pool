@@ -1,7 +1,7 @@
 const slice = (input, start, end = input.length) => {
     let res = [];
     if (end < 0) {
-        end = input.length + end;
+        end = input.length + end - 1;
     } else {
         end--;
     }
