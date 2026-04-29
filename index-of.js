@@ -7,8 +7,11 @@ const indexOf = (input, value, index = 0) => {
     return -1;
 };
 
-const lastIndexOf = (input, value) => {
-    for (let i = input.length - 1; i >= 0; i--) {
+const lastIndexOf = (input, value, index = -1) => {
+    if (index < 0) {
+        realIndex = input.length + index;
+    }
+    for (let i = realIndex; i >= 0; i--) {
         if (input[i] === value) {
             return i;
         }
