@@ -1,6 +1,3 @@
-const add4 = "+4";
-const mul2 = "*2";
-
 const findExpression = (nb) => {
     let res = "1";
     let i = 1;
@@ -17,5 +14,3 @@ const findExpression = (nb) => {
 
     return i === nb ? res : undefined;
 };
-
-
