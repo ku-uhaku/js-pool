@@ -1,3 +1,3 @@
-const vowels = /[aeiou]/g;
+const vowels = /[aeiouAEIOU]/g;
 
 const vowelDots = (str) => str.replace(vowels, "$&.");
