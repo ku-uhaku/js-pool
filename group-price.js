@@ -1,7 +1,8 @@
 const groupPrice = (str) => {
-    const regPrice = /(\S+(\d+)\.(\d+))/;
-    const match = str.match(regPrice);
-    return match ? [[match[1], match[2], match[3]]] : [];
+    const regPrice = /([^0-9 ]+(\d+)\.(\d+))/g;
+    const res = [];
+    for (const match of str.matchAll(regPrice)) {
+        res.push([match[1], match[2], match[3]]);
+    }
+    return res;
 };
-
-console.log(groupPrice("the total is USD19.98"));
