@@ -1,5 +1,3 @@
-const vowelDots = (str) => {
-    const reg = /[aeoui]/g;
+const vowels = /[aeiou]/g;
 
-    return str.replace(reg, "$&.");
-};
+const vowelDots = (str) => str.replace(vowels, "$&.");
