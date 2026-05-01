@@ -1,5 +1,5 @@
 const ionOut = (str) => {
-    return (str.match(/[a-zA-Z]*tion$/g) || []).map((ele) =>
+    return (str.match(/\b[a-zA-Z]*tion\b/g) || []).map((ele) =>
         ele.replace(/ion$/, ""),
     );
 };
