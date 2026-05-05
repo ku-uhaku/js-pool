@@ -30,10 +30,3 @@ function timeTravel({ date, hour, minute, second }) {
     newDate.setHours(hour, minute, second);
     return newDate;
 }
-
-timeTravel({
-    date: new Date("2020-05-29 23:25:22"),
-    hour: 21,
-    minute: 22,
-    second: 22,
-}).toString();
