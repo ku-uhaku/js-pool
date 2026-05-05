@@ -16,15 +16,24 @@ function addWeek(date) {
         "secondSunday",
     ];
 
-    let start = new Date("0001-01-01");
-    let current = new Date(date);
-    let msInDay = 24 * 60 * 60 * 1000;
-    let diff = current - start;
-    return days[Math.floor(diff / msInDay) % 14];
+    const start = new Date("0001-01-01");
+    const currentDate = new Date(date);
+
+    let dayToMs = 24 * 60 * 60 * 1000;
+    let diff = currentDate - start;
+
+    return days[(diff / dayToMs) % 14];
 }
 
 function timeTravel({ date, hour, minute, second }) {
-    const result = new Date(date);
-    result.setHours(hour, minute, second, 0);
-    return result;
+    let newDate = new Date(date);
+    newDate.setHours(hour, minute, second);
+    return newDate;
 }
+
+timeTravel({
+    date: new Date("2020-05-29 23:25:22"),
+    hour: 21,
+    minute: 22,
+    second: 22,
+}).toString();
