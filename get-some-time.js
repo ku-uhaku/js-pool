@@ -1,13 +1,26 @@
-const firstDayWeek = (number, year) => {
-    const dayOfYear = (number - 1) * 7;
-    const date = new Date(year, 0, 1 + dayOfYear);
+function firstDayWeek(number, year) {
+    const yearNum = parseInt(year);
 
+    const jan1 = new Date(0);
+    jan1.setFullYear(yearNum, 0, 1);
+    jan1.setHours(0, 0, 0, 0);
+
+    const jan1Day = jan1.getDay();
+    const daysToMonday = jan1Day === 0 ? 6 : jan1Day - 1;
+
+    const targetMonday = new Date(jan1);
+    targetMonday.setDate(jan1.getDate() - daysToMonday + (number - 1) * 7);
+
+    if (targetMonday < jan1) {
+        return formatDate(jan1);
+    }
+
+    return formatDate(targetMonday);
+}
+
+function formatDate(date) {
     const dd = String(date.getDate()).padStart(2, "0");
     const mm = String(date.getMonth() + 1).padStart(2, "0");
-    const yyyy = date.getFullYear();
-
+    const yyyy = String(date.getFullYear()).padStart(4, "0");
     return `${dd}-${mm}-${yyyy}`;
-};
-
-console.log(firstDayWeek(1, 1000)); // '01-01-1000'
-console.log(firstDayWeek(2, 2000)); // '08-01-2000'
+}

@@ -1,11 +1,25 @@
 const isValid = (date) => {
-    if (typeof date === "number") return !isNaN(date);
-    return date instanceof Date && !isNaN(date);
+    if (typeof date == "string") return false;
+
+    return !isNaN(new Date(date).getTime());
 };
 
-const isAfter = (date1, date2) =>
-    isValid(date1) && isValid(date2) && date1 - date2 > 0;
-const isBefore = (date1, date2) =>
-    isValid(date1) && isValid(date2) && date1 - date2 < 0;
-const isFuture = (date) => isValid(date) && date - new Date() > 0;
-const isPast = (date) => isValid(date) && date - new Date() < 0;
+const isAfter = (date1, date2) => {
+    if (!isValid(date1) || !isValid(date2)) return false;
+    return new Date(date1) > new Date(date2);
+};
+
+const isBefore = (date1, date2) => {
+    if (!isValid(date1) || !isValid(date2)) return false;
+    return new Date(date1) < new Date(date2);
+};
+
+const isFuture = (date) => {
+    if (!isValid(date)) return false;
+    return new Date(date) > new Date();
+};
+
+const isPast = (date) => {
+    if (!isValid(date)) return false;
+    return new Date(date) < new Date();
+};
